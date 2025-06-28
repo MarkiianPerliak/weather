@@ -6,8 +6,8 @@
     <title>Document</title>
     <style>
         body {
-            background-color: rgb(34, 8, 43);
-            color: white;
+            background-color: rgb(225, 216, 216);
+            color: black;
             font-family: "Fredoka";
             font-weight: 500;
         }
@@ -21,32 +21,35 @@
         input {
             background-color: transparent;
             border-radius: 25px;
-            border: 2.5px rgb(255, 0, 179) solid;
+            border: none;
+            background-color: white;
             padding: 10px;
             padding-top: 15px;
             padding-bottom: 15px;
             font-weight: 500;
-            color: white;
+            color: black;
             font-family: "Fredoka";
             font-weight: 500;
             text-align: center;
+            font-size: 17px;
         }
 
         input::placeholder {
-            color: white;
+            color: black;
             font-family: "Fredoka";
             font-weight: 500;
             text-align: center;
+            font-size: 17px;
         }
 
         button {
-            background-color: transparent;
+            background-color: white;
+            border: none;
             border-radius: 25px;
-            border: 2.5px rgb(255, 0, 179) solid;
             padding: 10px;
             padding-top: 15px;
             padding-bottom: 15px;
-            color: white;
+            color: black;
             font-family: "Fredoka";
             font-weight: 500;
             font-size: 18px;
@@ -56,12 +59,26 @@
         .weather__box {
             border-radius: 15px;
             padding: 10px;
-            border: 2.5px rgb(255, 0, 179) solid;
+            border: none;
+            display: flex;
+            gap: 40px;
             text-align: center;
+            background-color: white;
             margin-bottom: 40px;
             margin-right: auto;
             margin-left: auto;
-            width: 419px;
+            width: 700px;
+        }
+        .emoji {
+            font-size: 50px;
+        }
+        .gradus {
+            font-size: 50px;
+        }
+
+        .gradus-emoji-box {
+            display: flex;
+            padding-left: 70px;
         }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,7 +95,23 @@
     </div>
 <div>
 <div class="big__box">
+    <div class="weather__box">
+        <div class="left__box">
+            <h2 class="city">City: ${weatherObject.name}</h1>
+                <div class="gradus-emoji-box">
+            <p class="emoji">🌦️</p>
+            <p class="gradus">21</p>
+                </div>
 
+        </div>
+        <div class="right__box">
+        <h2 class="country">Country: ${weatherObject.sys.country}</h2>
+        <p class="weather">Weather: ${weatherObject.weather[0].main}</p>
+        <p class="weather-describtion">Weather Desc: ${weatherObject.weather[0].description}</p>
+        <p class="wind-speed">Wind Speed - ${weatherObject.wind.speed}</p>
+        <p class="humidity">Humidity - ${weatherObject.main.humidity}</p>
+        </div>
+    </div>
 </div>
 </div>
     <script type="module" src="./app.js"></script>

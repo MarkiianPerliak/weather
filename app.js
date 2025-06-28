@@ -13,7 +13,7 @@ const submitButton = document.querySelector(".weather__submit-button");
         <h1 class="city">City: ${weatherObject.name}</h1>
         <h2 class="country">Country: ${weatherObject.sys.country}</h2>
         <p class="weather">Weather: ${weatherObject.weather[0].main}</p>
-        <p class="weather-desc">Weather Desc: ${weatherObject.weather[0].description}</p>
+        <p class="weather-describtion">Weather Desc: ${weatherObject.weather[0].description}</p>
         <p class="wind-speed">Wind Speed - ${weatherObject.wind.speed}</p>
         <p class="humidity">Humidity - ${weatherObject.main.humidity}</p>
     </div>

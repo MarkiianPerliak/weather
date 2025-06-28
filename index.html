@@ -4,16 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(34, 8, 43);
+            color: white;
+            font-family: "Fredoka";
+            font-weight: 500;
+        }
+
+        .coolflexdiv {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input {
+            background-color: transparent;
+            border-radius: 25px;
+            border: 2.5px rgb(255, 0, 179) solid;
+            padding: 10px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-weight: 500;
+            color: white;
+            font-family: "Fredoka";
+            font-weight: 500;
+            text-align: center;
+        }
+
+        input::placeholder {
+            color: white;
+            font-family: "Fredoka";
+            font-weight: 500;
+            text-align: center;
+        }
+
+        button {
+            background-color: transparent;
+            border-radius: 25px;
+            border: 2.5px rgb(255, 0, 179) solid;
+            padding: 10px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            color: white;
+            font-family: "Fredoka";
+            font-weight: 500;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        
+        .weather__box {
+            border-radius: 15px;
+            padding: 10px;
+            border: 2.5px rgb(255, 0, 179) solid;
+            text-align: center;
+            margin-bottom: 40px;
+            margin-right: auto;
+            margin-left: auto;
+            width: 420px;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div style="margin-top: 60px; gap: 20px;" class="coolflexdiv">
     <input class="weather__input-city" placeholder="CITY" type="text">
-    <input class="weather__input-country" placeholder="COUNTRY (EXAMPLE: ua)" type="text">
-    <button class="weather__submit-button">See Weather</button>
-
-
-    <div class="big__box">
-
+    <input class="weather__input-country" placeholder="COUNTRY" type="text">
     </div>
+    <div style="margin-top: 40px;" class="coolflexdiv">
+        <button type="button" class="weather__submit-button">See Weather</button>
+    </div>
+<div>
+<div class="big__box">
+
+</div>
+</div>
     <script type="module" src="./app.js"></script>
 </body>
 </html>

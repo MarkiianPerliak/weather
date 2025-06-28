@@ -10,9 +10,10 @@ const submitButton = document.querySelector(".weather__submit-button");
     console.log(weatherObject)
     const weatherHTML = `
     <div class="weather__box">
-        <h1 class="city">${weatherObject.name}</h1>
-        <h2 class="country">${weatherObject.sys.country}</h2>
-        <p class="weather">${weatherObject.weather[0].main}</p>
+        <h1 class="city">City: ${weatherObject.name}</h1>
+        <h2 class="country">Country: ${weatherObject.sys.country}</h2>
+        <p class="weather">Weather: ${weatherObject.weather[0].main}</p>
+        <p class="weather-desc">Weather Desc: ${weatherObject.weather[0].description}</p>
         <p class="wind-speed">Wind Speed - ${weatherObject.wind.speed}</p>
         <p class="humidity">Humidity - ${weatherObject.main.humidity}</p>
     </div>

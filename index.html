@@ -60,15 +60,18 @@
             border-radius: 15px;
             padding: 10px;
             border: none;
-            display: flex;
             gap: 40px;
-            text-align: center;
             background-color: white;
             margin-bottom: 40px;
             margin-right: auto;
             margin-left: auto;
             width: 700px;
         }
+
+        .flex-box {
+            display: flex;
+        }
+
         .emoji {
             font-size: 50px;
         }
@@ -80,12 +83,40 @@
             display: flex;
             padding-left: 70px;
         }
+
+        .left__box {
+        }
+
+        .right__box {
+            margin-left: auto;
+            margin-right: 70px;
+            text-align: left;
+        }
+
+        .line {
+            background-color: rgb(206, 204, 204);
+            width: 700px;
+            height: 3px;
+            border-radius: 20px;
+            border: none;
+        }
+
+        .line-block {
+            background-color: rgb(206, 204, 204);
+            width: 3px;
+            height: 220px;
+            margin-top: 6px;
+            border-radius: 20px;
+            border: none;
+            margin-left: auto;
+        }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <div style="margin-top: 60px; gap: 20px;" class="coolflexdiv">
     <input class="weather__input-city" placeholder="CITY" type="text">
     <input class="weather__input-country" placeholder="COUNTRY" type="text">
@@ -95,21 +126,25 @@
     </div>
 <div>
 <div class="big__box">
-    <div class="weather__box">
+
+        <div class="weather__box">
+            <p>${weatherObject.name} ${hours}:${minutes}</p>
         <div class="left__box">
             <h2 class="city">City: ${weatherObject.name}</h1>
                 <div class="gradus-emoji-box">
-            <p class="emoji">🌦️</p>
-            <p class="gradus">21</p>
+            <p class="emoji">${emojicool}</p>
+            <p class="gradus">21°</p>
                 </div>
 
         </div>
         <div class="right__box">
+
         <h2 class="country">Country: ${weatherObject.sys.country}</h2>
         <p class="weather">Weather: ${weatherObject.weather[0].main}</p>
         <p class="weather-describtion">Weather Desc: ${weatherObject.weather[0].description}</p>
         <p class="wind-speed">Wind Speed - ${weatherObject.wind.speed}</p>
         <p class="humidity">Humidity - ${weatherObject.main.humidity}</p>
+
         </div>
     </div>
 </div>

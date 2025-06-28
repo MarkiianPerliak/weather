@@ -29,20 +29,34 @@ const submitButton = document.querySelector(".weather__submit-button");
 
     const ktemp = weatherObject.main.temp;
     const ctemp = Math.round(ktemp - 273.15);
+    const date = new Date;
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
     const weatherHTML = `
     <div class="weather__box">
+    <p>${weatherObject.name} ${hours}:${minutes}</p>
+    <div class="line"></div>
+    <div class="flex-box">
         <div class="left__box">
             <h2 class="city">City: ${weatherObject.name}</h1>
+                <div class="gradus-emoji-box">
             <p class="emoji">${emojicool}</p>
-            <p class="gradus">${ctemp}</p>
+            <p class="gradus">21°</p>
+                </div>
+
         </div>
+            <div class="line-block"></div>
         <div class="right__box">
+
         <h2 class="country">Country: ${weatherObject.sys.country}</h2>
         <p class="weather">Weather: ${weatherObject.weather[0].main}</p>
         <p class="weather-describtion">Weather Desc: ${weatherObject.weather[0].description}</p>
         <p class="wind-speed">Wind Speed - ${weatherObject.wind.speed}</p>
         <p class="humidity">Humidity - ${weatherObject.main.humidity}</p>
+
         </div>
+            </div>
+                    <div class="line"></div>
     </div>
     `
 

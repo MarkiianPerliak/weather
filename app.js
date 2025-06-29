@@ -4,7 +4,6 @@
 // за адресою https://api.openweathermap.org/data/2.5/weather?q={city}&appid={5a1b683a64cf9db9ae06243dca955f3d},
 // де {city} - назва міста, а {API_KEY} - ваш ключ API
 // OpenWeatherMap. Перегляньте отримані дані щодо погоди.
-// const submitButton = document.querySelector(".weather__submit-button");
 // ℃ =(K - 273.15 ) * 1
 // ℃ =(294 - 273.15 ) * 1.000000
 // ℃ =20.850000000000023 * 1.000000
@@ -16,7 +15,6 @@ function createWeatherText(weatherObject) {
     console.log(weatherObject)
     let emojicool = "WeatherEmoji";
     const mainWeather = weatherObject.weather[0].main;
-
     if (mainWeather === "Rain") {
         emojicool = "🌧️";
     } else if (mainWeather === "Clouds") {
@@ -41,23 +39,23 @@ function createWeatherText(weatherObject) {
 
     const weatherHTML = `
     <div class="weather__box">
-        <p class="time">${weatherObject.name} ${hours}:${minutes}</p>
+        <p data-text="${weatherObject.name} ${hours}:${minutes}" class="time">${weatherObject.name} ${hours}:${minutes}</p>
         <div class="line"></div>
         <div class="flex-box">
             <div class="left__box">
-                <h2 class="city">City: ${weatherObject.name}</h2>
+                <h2 data-text="City: ${weatherObject.name}" class="city">City: ${weatherObject.name}</h2>
                 <div class="gradus-emoji-box">
                     <p class="emoji">${emojicool}</p>
-                    <p class="gradus">${ctemp}°</p>
+                    <p data-text="${ctemp}" class="gradus">${ctemp}°</p>
                 </div>
             </div>
             <div class="line-block"></div>
             <div class="right__box">
-                <h2 class="country">Country: ${weatherObject.sys.country}</h2>
-                <p class="weather">Weather: ${weatherObject.weather[0].main}</p>
-                <p class="weather-describtion">Weather Desc: ${weatherObject.weather[0].description}</p>
-                <p class="wind-speed">Wind Speed - ${weatherObject.wind.speed}</p>
-                <p class="humidity">Humidity - ${weatherObject.main.humidity}</p>
+                <h2 data-text="Country: ${weatherObject.sys.country}" class="country">Country: ${weatherObject.sys.country}</h2>
+                <p data-text="Weather: ${weatherObject.weather[0].main}" class="weather">Weather: ${weatherObject.weather[0].main}</p>
+                <p data-text="Weather Desc: ${weatherObject.weather[0].description}" class="weather-describtion">Weather Desc: ${weatherObject.weather[0].description}</p>
+                <p data-text="Wind Speed - ${weatherObject.wind.speed}" class="wind-speed">Wind Speed - ${weatherObject.wind.speed}</p>
+                <p data-text="Humidity - ${weatherObject.main.humidity}" class="humidity">Humidity - ${weatherObject.main.humidity}</p>
             </div>
         </div>
         <div class="line"></div>
@@ -65,8 +63,28 @@ function createWeatherText(weatherObject) {
     `;
 
     const wrapper = document.createElement("div");
+
     wrapper.innerHTML = weatherHTML;
-    document.querySelector(".big__box").insertAdjacentElement("afterend", wrapper);
+    const biggiebox = document.querySelector(".big__box");
+    biggiebox.insertAdjacentElement("afterend", wrapper);
+    wrapper.classList.add("coolflexstyles");
+    const thebox = document.querySelector(".weather__box");
+
+    if (mainWeather === "Rain") {
+        thebox.classList.add("rain");
+    } else if (mainWeather === "Clouds") {
+        thebox.classList.add("clouds");
+    } else if (mainWeather === "Clear") {
+        thebox.classList.add("sunny");
+    } else if (mainWeather === "Snow") {
+        thebox.classList.add("snow");
+    } else if (mainWeather === "Drizzle") {
+        thebox.classList.add("idkwhatsthat");
+    } else if (mainWeather === "Thunderstorm") {
+        thebox.classList.add("thunder");
+    } else if (mainWeather === "Mist" || mainWeather === "Fog" || mainWeather === "Haze") {
+        thebox.classList.add("fog");
+    }
 
     const emojiEl = wrapper.querySelector(".emoji");
     const gradusEl = wrapper.querySelector(".gradus");
@@ -109,7 +127,6 @@ function createWeatherText(weatherObject) {
     } else if (mainWeather === "Mist" || mainWeather === "Fog" || mainWeather === "Haze") {
         emojicool = "🌫️";
     }
-
             const ktemp = data.main.temp;
             const ctemp = Math.round(ktemp - 273.15);
             const date = new Date();
@@ -125,6 +142,23 @@ function createWeatherText(weatherObject) {
             windSpeedEl.textContent = `Wind Speed - ${data.wind.speed}`;
             humidityEl.textContent = `Humidity - ${data.main.humidity}`;
             timeEl.textContent = `${data.name} ${hours}:${minutes}`;
+
+                const thebox = document.querySelector(".weather__box");
+    if (mainWeather === "Rain") {
+        thebox.classList.add("rain");
+    } else if (mainWeather === "Clouds") {
+        thebox.classList.add("clouds");
+    } else if (mainWeather === "Clear") {
+        thebox.classList.add("sunny");
+    } else if (mainWeather === "Snow") {
+        thebox.classList.add("snow");
+    } else if (mainWeather === "Drizzle") {
+        thebox.classList.add("idkwhatsthat");
+    } else if (mainWeather === "Thunderstorm") {
+        thebox.classList.add("thunder");
+    } else if (mainWeather === "Mist" || mainWeather === "Fog" || mainWeather === "Haze") {
+        thebox.classList.add("fog");
+    }
         }, 1000);
     }
 }

@@ -7,7 +7,7 @@
     <style>
         body {
             background-color: rgb(225, 216, 216);
-            color: black;
+            color: white;
             font-family: "Fredoka";
             font-weight: 500;
         }
@@ -57,6 +57,7 @@
         }
         
         .weather__box {
+            position: relative;
             border-radius: 15px;
             padding: 10px;
             border: none;
@@ -66,6 +67,7 @@
             margin-right: auto;
             margin-left: auto;
             width: 700px;
+            color: white;
         }
 
         .flex-box {
@@ -82,9 +84,6 @@
         .gradus-emoji-box {
             display: flex;
             padding-left: 70px;
-        }
-
-        .left__box {
         }
 
         .right__box {
@@ -110,6 +109,92 @@
             border: none;
             margin-left: auto;
         }
+
+        .rain {
+            background-image: url(./img/rain.png);
+            background-size: cover;
+        }
+        @keyframes moveCloud {
+        0% {
+            background-position: -320px, 0px;
+        }
+        100% {
+            background-position: 700px, 0px;
+        }
+}
+        .clouds {
+            background-image: url(./img/cloud.png), url(./img/clouds.jpg);
+            background-repeat: no-repeat;
+            background-size: 350px, cover;
+            position: absolute;
+            animation: moveCloud 35s linear infinite;
+        }
+
+        .sunny {
+            background-image: url(./img/sunny.png);
+            background-size: cover;
+        }
+
+        .snow {
+            background-image: url(./img/snow.jpg);
+            background-size: cover;
+            background-position: 0px;
+        }
+
+        .idkwhatsthat {
+            background-image: url(./img/idkwhatsthat.jpg);
+            background-size: cover;
+            background-position: 0px;
+        }
+
+        .thunder {
+            background-image: url(./img/thunder.jpg);
+            background-size: cover;
+            background-position: 0px;
+        }
+
+        .fog {
+            background-image: url(./img/fog.webp);
+            background-size: cover;
+            background-position: 0px;
+        }
+
+        .coolflexstyles {
+            display: flex;
+            justify-content: center;
+        }
+
+        .weather__box p {
+  color: white; /* fill color */
+  position: relative;
+  z-index: 1;
+}
+
+.weather__box p::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  z-index: -1;
+  color: black; /* stroke color */
+  filter: blur(1px);
+  opacity: 0.8;
+}
+
+        .weather__box h2 {
+  color: white; /* fill color */
+  position: relative;
+  z-index: 1;
+}
+
+.weather__box h2::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  z-index: -1;
+  color: black; /* stroke color */
+  filter: blur(1px);
+  opacity: 0.8;
+}
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -126,7 +211,6 @@
     </div>
 <div>
 <div class="big__box">
-
         <!-- <div class="weather__box">
             <p>${weatherObject.name} ${hours}:${minutes}</p>
         <div class="left__box">

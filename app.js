@@ -62,13 +62,14 @@ function createWeatherText(weatherObject) {
     </div>
     `;
 
-    const wrapper = document.createElement("div");
+    // const wrapper = document.createElement("div");
+    // wrapper.classList.add("coolflexstyles");
+    // wrapper.innerHTML = weatherHTML;
 
-    wrapper.innerHTML = weatherHTML;
     const biggiebox = document.querySelector(".big__box");
-    biggiebox.insertAdjacentElement("afterend", wrapper);
-    wrapper.classList.add("coolflexstyles");
+    biggiebox.innerHTML = weatherHTML;
     const thebox = document.querySelector(".weather__box");
+    biggiebox.classList.add("coolflexstyles");
 
     if (mainWeather === "Rain") {
         thebox.classList.add("rain");
@@ -86,15 +87,15 @@ function createWeatherText(weatherObject) {
         thebox.classList.add("fog");
     }
 
-    const emojiEl = wrapper.querySelector(".emoji");
-    const gradusEl = wrapper.querySelector(".gradus");
-    const cityEl = wrapper.querySelector(".city");
-    const countryEl = wrapper.querySelector(".country");
-    const weatherEl = wrapper.querySelector(".weather");
-    const weatherDescEl = wrapper.querySelector(".weather-describtion");
-    const windSpeedEl = wrapper.querySelector(".wind-speed");
-    const humidityEl = wrapper.querySelector(".humidity");
-    const timeEl = wrapper.querySelector(".time");
+    const emojiEl = document.querySelector(".emoji");
+    const gradusEl = document.querySelector(".gradus");
+    const cityEl = document.querySelector(".city");
+    const countryEl = document.querySelector(".country");
+    const weatherEl = document.querySelector(".weather");
+    const weatherDescEl = document.querySelector(".weather-describtion");
+    const windSpeedEl = document.querySelector(".wind-speed");
+    const humidityEl = document.querySelector(".humidity");
+    const timeEl = document.querySelector(".time");
 
     const city = document.querySelector(".weather__input-city").value;
     const country = document.querySelector(".weather__input-country").value;

@@ -10,9 +10,10 @@
 // ℃ =20.85000
 
 const submitButton = document.querySelector(".weather__submit-button");
-
+let number = 0;
 function createWeatherText(weatherObject) {
     console.log(weatherObject)
+    number++
     let emojicool = "WeatherEmoji";
     const mainWeather = weatherObject.weather[0].main;
     if (mainWeather === "Rain") {
@@ -38,7 +39,7 @@ function createWeatherText(weatherObject) {
     const minutes = date.getMinutes();
 
     const weatherHTML = `
-    <div class="weather__box">
+    <div class="weather__box-${number} weather__box">
         <p data-text="${weatherObject.name} ${hours}:${minutes}" class="time">${weatherObject.name} ${hours}:${minutes}</p>
         <div class="line"></div>
         <div class="flex-box">
@@ -62,14 +63,10 @@ function createWeatherText(weatherObject) {
     </div>
     `;
 
-    // const wrapper = document.createElement("div");
-    // wrapper.classList.add("coolflexstyles");
-    // wrapper.innerHTML = weatherHTML;
-
     const biggiebox = document.querySelector(".big__box");
-    biggiebox.innerHTML = weatherHTML;
-    const thebox = document.querySelector(".weather__box");
-    biggiebox.classList.add("coolflexstyles");
+    biggiebox.insertAdjacentHTML("afterbegin", weatherHTML)
+    const thebox = document.querySelector(`.weather__box-${number}`);
+    biggiebox.classList.add("coolmarginstyles");
 
     if (mainWeather === "Rain") {
         thebox.classList.add("rain");
@@ -87,15 +84,15 @@ function createWeatherText(weatherObject) {
         thebox.classList.add("fog");
     }
 
-    const emojiEl = document.querySelector(".emoji");
-    const gradusEl = document.querySelector(".gradus");
-    const cityEl = document.querySelector(".city");
-    const countryEl = document.querySelector(".country");
-    const weatherEl = document.querySelector(".weather");
-    const weatherDescEl = document.querySelector(".weather-describtion");
-    const windSpeedEl = document.querySelector(".wind-speed");
-    const humidityEl = document.querySelector(".humidity");
-    const timeEl = document.querySelector(".time");
+    const emojiEl = thebox.querySelector(".emoji");
+    const gradusEl = thebox.querySelector(".gradus");
+    const cityEl = thebox.querySelector(".city");
+    const countryEl = thebox.querySelector(".country");
+    const weatherEl = thebox.querySelector(".weather");
+    const weatherDescEl = thebox.querySelector(".weather-describtion");
+    const windSpeedEl = thebox.querySelector(".wind-speed");
+    const humidityEl = thebox.querySelector(".humidity");
+    const timeEl = thebox.querySelector(".time");
 
     const city = document.querySelector(".weather__input-city").value;
     const country = document.querySelector(".weather__input-country").value;
@@ -144,7 +141,7 @@ function createWeatherText(weatherObject) {
             humidityEl.textContent = `Humidity - ${data.main.humidity}`;
             timeEl.textContent = `${data.name} ${hours}:${minutes}`;
 
-                const thebox = document.querySelector(".weather__box");
+                const thebox = document.querySelector(`.weather__box-${number}`);
     if (mainWeather === "Rain") {
         thebox.classList.add("rain");
     } else if (mainWeather === "Clouds") {
